@@ -17,14 +17,17 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     st.audio(uploaded_file)
 
-    with st.spinner("Transcribing audio..."):
-        text = transcribe_audio(uploaded_file)
+    # 👉 Debug: 检查上传是否正常
+    st.write("File uploaded successfully")
+    st.write("Name:", uploaded_file.name)
+    st.write("Type:", uploaded_file.type)
+    st.write("Size:", uploaded_file.size)
 
-    st.subheader("Transcribed Text")
-    st.write(text)
+    # 👉 暂时先不做 ASR
+    # with st.spinner("Transcribing audio..."):
+    #     text = transcribe_audio(uploaded_file)
 
-    with st.spinner("Detecting scam..."):
-        prediction = predict_scam(text)
+    # st.subheader("Transcribed Text")
+    # st.write(text)
 
-    st.subheader("Prediction")
-    st.write(prediction)
+    st.warning("ASR temporarily disabled for debugging")

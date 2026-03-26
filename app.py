@@ -17,10 +17,8 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     st.audio(uploaded_file)
 
-    st.write("File uploaded successfully")
-
-    # 👉 暂时用 fake ASR
-    text = "Hello, this is a test message about your bank account refund."
+    with st.spinner("Transcribing audio..."):
+        text = transcribe_audio(uploaded_file)
 
     st.subheader("Transcribed Text")
     st.write(text)

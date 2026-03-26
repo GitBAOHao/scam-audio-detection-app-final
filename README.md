@@ -33,4 +33,4 @@ This project is a Streamlit-based web application that detects whether an audio 
 ## Demo
 
 You can try the deployed app here:  
-👉 *(Paste your Streamlit link here)*
+scam-audio-detection-app-final-b2yjdevmagwoanjcghyrmh.streamlit.app

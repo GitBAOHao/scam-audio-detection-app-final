@@ -8,7 +8,7 @@ def load_asr_model():
     if transcriber is None:
         transcriber = pipeline(
             "automatic-speech-recognition",
-            model="openai/whisper-tiny"
+            model="openai/whisper-base"
         )
 
 def transcribe_audio(uploaded_file):

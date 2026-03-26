@@ -13,14 +13,12 @@ def load_model():
     if tokenizer is not None and model is not None:
         return
 
-    # 👉 优先尝试 Hugging Face
     try:
         print("Loading model from Hugging Face...")
         tokenizer = AutoTokenizer.from_pretrained(HF_MODEL)
         model = AutoModelForSequenceClassification.from_pretrained(HF_MODEL)
         print("Loaded from Hugging Face")
 
-    # 👉 如果失败，用本地
     except Exception as e:
         print("HF failed, loading local model:", e)
 
@@ -42,7 +40,6 @@ def predict_scam(text):
 
     pred_id = torch.argmax(outputs.logits, dim=1).item()
 
-    # 👉 根据你模型训练情况调整（后面我们可以再校对）
     label_map = {
         0: "Not Scam",
         1: "Scam"
